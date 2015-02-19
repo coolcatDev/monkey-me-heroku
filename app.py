@@ -26,7 +26,6 @@ app.logger.addHandler(logging.StreamHandler(sys.stdout))
 app.logger.setLevel(logging.ERROR)
 
 
-
 @app.route('/')
 def index():
     if not session.get('logged_in'):
@@ -42,7 +41,6 @@ def friendList(page=1):
         return redirect(url_for('login'))
     else:
         userID = session['user_id']
-
         userList = (
             users.query
             .join(friendships, users.id == friendships.user_id)
@@ -51,14 +49,12 @@ def friendList(page=1):
             .filter(friendships.friend_id == userID)
             .paginate(page, 6, False)
         )
-
         bestFriend = (
             users.query
             .join(bestFriends, users.id == bestFriends.user_id)
             .add_columns(users.id, users.userName, bestFriends.best_friend_id)
             .filter(bestFriends.best_friend_id == userID)
         )
-
         flash('"Friends"')
         return render_template(
             'friends.html', userList=userList, bestFriend=bestFriend)
@@ -198,7 +194,6 @@ def removeFriend(userToRemove):
                 friend_id=profileID)
             .first()
         )
-
         if oldFriend:
             db.session.delete(oldFriend)
             db.session.commit()
@@ -209,7 +204,6 @@ def removeFriend(userToRemove):
                 friend_id=userToRemove)
             .first()
         )
-
         if oldFriend2:
             db.session.delete(oldFriend2)
             db.session.commit()
@@ -221,7 +215,6 @@ def removeFriend(userToRemove):
                 best_friend_id=profileID)
             .first()
         )
-
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
@@ -232,7 +225,6 @@ def removeFriend(userToRemove):
                 best_friend_id=userToRemove)
             .first()
         )
-
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
@@ -255,7 +247,6 @@ def addBestFriend(userToRequest):
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
-
         oldBFFCheck = (
             bestFriends.query
             .filter_by(user_id=profileID)
@@ -264,7 +255,6 @@ def addBestFriend(userToRequest):
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
-
         # of requested
         oldBFFCheck = (
             bestFriends.query
@@ -274,7 +264,6 @@ def addBestFriend(userToRequest):
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
-
         oldBFFCheck = (
             bestFriends.query
             .filter_by(user_id=userToRequest)
@@ -283,12 +272,10 @@ def addBestFriend(userToRequest):
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
-
         # add the new Bestfriend
         newBFF = bestFriends(profileID, userToRequest)
         db.session.add(newBFF)
         db.session.commit()
-
         newBFF2 = bestFriends(userToRequest, profileID)
         db.session.add(newBFF2)
         db.session.commit()
@@ -336,8 +323,6 @@ def registering():
             return render_template('register.html')
         if userCheck4 == "":
             flash('"Confirm password"')
-            return render_template('register.html')
-        
     if userCheck3 == userCheck4:
         file = request.files['file']
         if file and allowed_file(file.filename):
@@ -350,28 +335,19 @@ def registering():
                 session['user_id'] = userName.id
                 # image part
                 filename = str(userName.id)
-            
-            # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
-            conn = boto.connect_s3(app.config['AWS_ACCESS_KEY'], app.config['AWS_SECRET_KEY'])
-            bucket = conn.get_bucket(app.config['S3_BUCKET'])
-            
-            key = '%s.jpg' % filename
-            k = Key(bucket)
-            k.key = key
-            
-            
-            
-            
-            buff = cStringIO.StringIO()
-            
-            buff.write(file.read())
-            buff.seek(0)
-            k.set_contents_from_file(buff)
-
-                #file.save(os.path.join(
-                 #   app.config['UPLOAD_FOLDER'],
-                  #  filename + ".jpg")
-                #)
+                # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+                conn = boto.connect_s3(
+                    app.config['AWS_ACCESS_KEY'],
+                    app.config['AWS_SECRET_KEY']
+                )
+                bucket = conn.get_bucket(app.config['S3_BUCKET'])
+                key = '%s.jpg' % filename
+                k = Key(bucket)
+                k.key = key
+                buff = cStringIO.StringIO()
+                buff.write(file.read())
+                buff.seek(0)
+                k.set_contents_from_file(buff)
                 flash('"Registered Successfully"')
                 return redirect(url_for('friendList'))
         else:
@@ -393,7 +369,6 @@ def deleteAccount():
     else:
         # target
         userToDelete = session['user_id']
-        
         # Friendships
         oldAccountFriendships1 = friendships.query.filter_by(
             user_id=userToDelete).all()
@@ -414,7 +389,6 @@ def deleteAccount():
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
-
         oldBFFCheck = (
             bestFriends.query
             .filter_by(user_id=userToDelete)
@@ -489,30 +463,21 @@ def saveEditAccount():
                             newUser.userPhone = userCheck3
                             newUser.userPass = userCheck4
                             db.session.commit()
-                            #image = 'static/uploads/' + str(profileID) + '.jpg'
-                            #os.remove(image)
-                            #filename = str(profileID)
-                            #file.save(os.path.join(
-                             #   app.config['UPLOAD_FOLDER'],
-                              #  filename + ".jpg")
-                            #)
-                # image part
-                    filename = str(profileID)
-            
-                # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
-                conn = boto.connect_s3(app.config['AWS_ACCESS_KEY'], app.config['AWS_SECRET_KEY'])
-                bucket = conn.get_bucket(app.config['S3_BUCKET'])
-                bucket.delete_key(filename + '.jpg')    
-                key = '%s.jpg' % filename
-                k = Key(bucket)
-                k.key = key
-            
-                buff = cStringIO.StringIO()
-            
-                buff.write(file.read())
-                buff.seek(0)
-                k.set_contents_from_file(buff)
-                
+                             filename = str(profileID)
+                            # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+                            conn = boto.connect_s3(
+                                app.config['AWS_ACCESS_KEY'], 
+                                app.config['AWS_SECRET_KEY']
+                            )
+                            bucket = conn.get_bucket(app.config['S3_BUCKET'])
+                            bucket.delete_key(filename + '.jpg')    
+                            key = '%s.jpg' % filename
+                            k = Key(bucket)
+                            k.key = key
+                            buff = cStringIO.StringIO()
+                            buff.write(file.read())
+                            buff.seek(0)
+                            k.set_contents_from_file(buff)
                             flash('"Saved"')
                             return redirect(url_for('myProfile'))
                         else:
@@ -543,32 +508,21 @@ def saveEditAccount():
                         newUser.userPhone = userCheck3
                         newUser.userPass = userCheck4
                         db.session.commit()
-                        #image = 'static/uploads/' + str(profileID) + '.jpg'
-                        #os.remove(image)
-                        #filename = str(profileID)
-                        #file.save(os.path.join(
-                         #   app.config['UPLOAD_FOLDER'],
-                          #  filename + ".jpg")
-                        #)
-                # image part
-                    filename = str(profileID)
-        
-                # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
-                conn = boto.connect_s3(app.config['AWS_ACCESS_KEY'], app.config['AWS_SECRET_KEY'])
-                bucket = conn.get_bucket(app.config['S3_BUCKET'])
-                 
-                bucket.delete_key(filename + '.jpg')    
-                key = '%s.jpg' % filename
-                k = Key(bucket)
-                k.key = key
-        
-                    buff = cStringIO.StringIO()
-        
-                buff.write(file.read())
-                buff.seek(0)
-                k.set_contents_from_file(buff)
-
-
+                        filename = str(profileID)
+                        # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+                        conn = boto.connect_s3(
+                            app.config['AWS_ACCESS_KEY'], 
+                            app.config['AWS_SECRET_KEY']
+                        )
+                        bucket = conn.get_bucket(app.config['S3_BUCKET'])
+                        bucket.delete_key(filename + '.jpg')
+                        key = '%s.jpg' % filename
+                        k = Key(bucket)
+                        k.key = key
+                        buff = cStringIO.StringIO()
+                        buff.write(file.read())
+                        buff.seek(0)
+                        k.set_contents_from_file(buff)
                         flash('"Saved"')
                         return redirect(url_for('myProfile'))
                     else:
