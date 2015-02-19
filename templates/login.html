@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div id=flashes>
+            {{ message }}
+            </div><br>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    <form action="{{ url_for('login') }}" method=post>
+        <input  type=text name=username class=formin placeholder=username>
+        <br>
+        <input  type=password name=password class=formin placeholder=password>
+        <br><br>
+        <input  class="subButton" type=submit value=Login>
+    </form><br>
+
+    <div class="register" >
+        <a href="{{ url_for('register') }}">
+            <img src="static/images/quill.png" width="20px" height="20px" />
+        </a>
+    </div><br><br><br>
+
+{% endblock %}

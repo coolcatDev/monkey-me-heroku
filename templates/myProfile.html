@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+        <div id=flashes>
+        {{ message }}
+        </div>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+    <div style="clear:both;">
+    </div>
+
+    <div class="contentUserWrap">
+    {% for user in userList %}
+        <div class="contentUser" style="background-image:url(https://s3.amazonaws.com/monkey-me-avatars/{{ user.id }}.jpg);">
+        </div>
+        <div class="profileData">
+            <p class="bestFriendTag">
+            {{ user.userName }}
+            </p>
+            <p class="bestFriendTag">
+            {{ user.userEmail }}
+            </p>
+            <p class="bestFriendTag">
+            {{ user.userPhone }}
+            </p>
+        </div>
+
+        <div style="clear:both;">
+        </div>
+
+        <hr>
+
+        <div style="float:right; margin-left:5px;">
+            <a href="{{ url_for('deleteAccount') }}">
+                <img src="static/images/trashBlack.png" width="20px" height="20px" />
+            </a>
+        </div> 
+
+        <div style="float:right;">
+            <a href="{{ url_for('editAccount') }}">
+                <img src="static/images/pen.png" width="20px" height="20px" />
+            </a>
+        </div><br><br><br><br>
+    {% endfor %}
+    </div>
+
+{% endblock %}

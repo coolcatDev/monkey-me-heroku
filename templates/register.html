@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div id=flashes>
+            {{ message }}
+            </div><br>
+        {% endfor %}
+     {% endif %}
+{% endwith %}
+
+    <form action="{{ url_for('registering') }}" method=post enctype=multipart/form-data>
+        <input  type=text name=username class=formin placeholder=username>
+        <br>
+        <input  type=text name=email class=formin placeholder=email>
+        <br>
+        <input  type=text name=phone class=formin placeholder=phone>
+        <br>
+        <input  type=password name=password class=formin placeholder=password>
+        <br>
+        <input  type=password name=passwordCheck class=formin placeholder=password>
+        <br><br>
+        <p class="subButton2">Photo</p>
+        <input class="fileBtnHide" type=file name=file>
+        <br><br>
+        <input  class="subButton" type=submit value=Register>
+    </form><br><br><br><br>
+
+{% endblock %}

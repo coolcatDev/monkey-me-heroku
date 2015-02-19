@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block body %}
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <div id=flashes>
+            {{ message }}
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+{% for user in userList %}
+    <form action="{{ url_for('saveEditAccount') }}" method=post enctype=multipart/form-data>
+        <input  type=text name=userName class=formin placeholder={{ user.userName }}>
+        <br>
+        <input  type=text name=userEmail class=formin placeholder={{ user.userEmail }}>
+        <br>
+        <input  type=text name=userPhone class=formin placeholder={{ user.userPhone }}>
+        <br>
+        <input  type=password name=userPassA class=formin placeholder={{ user.userPass }}>
+        <br>
+        <input  type=password name=userPassB class=formin placeholder={{ user.userPass }}>
+        <br><br>
+        <p class="subButton2">Photo</p>
+        <input class="fileBtnHide" type=file name=file>
+        <br><br>
+        <input  class="subButton" type=submit value=Save>
+    </form>
+    <br><br><br>
+{% else %}
+    <div>
+        <p>No info</p>
+    </div>
+{% endfor %}
+
+{% endblock %}

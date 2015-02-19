@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="static/css/style.css" />
+<script src="static/js/myscripts.js"></script>
+
+</head>
+
+<body>
+	<div class="bar">
+		<div class="logo">
+			<img class="logoImg" src="static/images/logo.png" />
+		</div>
+		<div class="menu">
+			<div class="nav">
+			{% if not session.logged_in %}
+				<a href="{{ url_for('login') }}">Login</a>
+			{% else %}
+				<a href="{{ url_for('logout') }}">Logout</a>
+			{% endif %}
+			</div>
+			<div class="nav">
+				<a href="{{url_for('allList')}}">Users</a>
+			</div>
+			<div class="nav">
+				<a href="{{url_for('friendList')}}">Friends</a>
+			</div>
+			<div class="nav">
+				<a href="{{url_for('myProfile')}}">Profile</a>
+			</div>
+		</div>
+	</div>
+
+	<video loop id="bgvid">
+		<source src="https://s3.amazonaws.com/monkey-me-avatars/video.mp4" type="video/mp4">
+		<source src="https://s3.amazonaws.com/monkey-me-avatars/video.webm" type="video/webm">
+		"Your browser does not support HTML5 video"
+	</video>
+
+	<div id="vidPauseVisable" style="background-image:url(static/images/play.png);">
+	</div>
+
+video	<div class="content" >
+	{% block body %}{% endblock %}
+	</div>
+
+	<div class="menuM" >
+		<div class="innerMenuM" >
+			<table class="menuMtable">
+				<tr>
+					<td>
+					{% if not session.logged_in %}
+						<a href="{{ url_for('login') }}">
+							<img src="static/images/key.png" width="32px" height="32px" />
+						</a>
+					{% else %}
+						<a href="{{ url_for('logout') }}">
+							<img src="static/images/lock.png" width="32px" height="32px" />
+						</a>
+					{% endif %}
+					</td>
+					<td>
+						<a href="{{url_for('allList')}}">
+							<img src="static/images/search.png" width="32px" height="32px" />
+						</a>
+					</td>
+					<td>
+						<a href="{{url_for('friendList')}}">
+							<img src="static/images/user.png" width="32px" height="32px" />
+						</a>
+					</td>
+					<td>
+						<a href="{{url_for('myProfile')}}">
+							<img src="static/images/copy.png" width="32px" height="32px" />
+						</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="footer">
+	</div>
+
+</body>
+</html>

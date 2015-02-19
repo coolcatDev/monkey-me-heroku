@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block body %}
+
+	<div class="controlMenu">	
+		<table class="controlMenuTable">
+			<tr>
+				<td>
+				{% if userList.has_prev %}
+					<div class="backNext">
+						<a href="{{ url_for('allList', page=userList.prev_num, sort=sort) }}">&#60;</a>
+					</div>
+				{% endif %}
+				</td>
+				<td>
+				</td>
+				<td>
+				{% if userList.has_next %}
+					<div class="backNext">
+						<a href="{{ url_for('allList', page=userList.next_num, sort=sort) }}">&#62;</a>
+					</div>
+				{% endif %}
+			</td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="clear:both;">
+	</div>
+
+	
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<div id=flashes>
+			{{ message }}
+			</div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+	<div class="sortMenu">
+		<a href="{{ url_for('allList', page=1, sort=1) }}">
+			<div class="sortMenBtn"> By Name</div>
+		</a>
+		<a href="{{ url_for('allList', page=1, sort=2) }}">
+			<div class="sortMenBtn"> Best Friend</div>
+		</a>
+		<a href="{{ url_for('allList', page=1, sort=3) }}">
+			<div class="sortMenBtn"> Number of Friends</div>
+		</a>
+	</div>
+
+	<div style="clear:both;">
+	</div>
+
+	<div class="contentUserWrap">
+	{% if userList.items %}
+		{% for user in userList.items %}
+			<div class="contentUser" style="background-image:url(https://s3.amazonaws.com/monkey-me-avatars/{{ user.users.id }}.jpg);">
+				<div class="innerContents">
+					<a href="{{ url_for('profile', profileId=user.users.id) }}">
+						{{ user.users.userName }}
+					</a>
+				</div>
+				<div class="contentButtonWrap">
+					<div class="contentButton">
+						<a href="{{ url_for('profile', profileId = user.users.id) }}">
+							<img src="static/images/copyBlack.png" width="20px" height="20px" />
+						</a>
+					</div>
+				{% if user.users.id !=  session.user_id %}
+					<div class="contentButton">
+						<a href="{{ url_for('addFriend', userToAdd = user.users.id) }}">
+							<img src="static/images/addFriendBlack.png" width="20px" height="20px" />
+						</a>
+					</div>
+				{% endif %}
+					<div class="contentDetail">
+						<p class="userDetail">Total Friends:{{ user.total }}</p>
+					{% if user.best_friend_name != None %}
+						<a  href="{{ url_for('profile', profileId=user.users.best_friend.id) }}">
+							<p class="userDetail">Best Friend:{{ user.best_friend_name  }}</p>
+						</a>
+					{% endif %}
+					</div>
+				</div>
+			</div>
+
+		{% endfor %}{% else %}<div>No users</div>
+	{% endif %}
+	</div>
+
+	<div style="clear:both;">
+	</div>
+	<br><br>
+
+{% endblock %}

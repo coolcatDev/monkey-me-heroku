@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block body %}
+
+	<div class="controlMenu">
+		<table class="controlMenuTable">
+			<tr>
+				<td>
+				{% if userList.has_prev %}
+					<div class="backNext">
+						<a href="{{ url_for('friendList', page=userList.prev_num) }}">&#60;</a>
+					</div>
+				{% endif %}
+				</td>
+				<td>
+				</td>
+				<td>
+				{% if userList.has_next %}
+					<div class="backNext">
+						<a href="{{ url_for('friendList', page=userList.next_num) }}">&#62;</a>
+					</div>
+				{% endif %}
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div style="clear:both;"></div>
+	
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<div id=flashes>
+			{{ message }}
+			</div>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+{% if bestFriend %}
+	{% for friend in bestFriend %}
+		<p class="bestFriendTag">
+			Best Friend:{{ friend.userName }}
+		</p>
+	{% endfor %}
+{% endif %} 
+
+	<div class="contentUserWrap">
+	{% if userList.items %}
+		{% for friends in userList.items %}
+			<div class="contentUser" style="background-image:url(https://s3.amazonaws.com/monkey-me-avatars/{{ friends.user_id }}.jpg);">
+				<div class="innerContents">
+					<a href="{{ url_for('profile', profileId=friends.user_id) }}">
+					{{ friends.userName }}
+					</a>
+				</div>
+				<div class="contentButtonWrap">
+					<div class="contentButton">
+						<a href="{{ url_for('profile', profileId = friends.user_id) }}">
+							<img src="static/images/copyBlack.png" width="20px" height="20px" />
+						</a>
+					</div>
+					<div class="contentButton">
+						<a href="{{ url_for('removeFriend', userToRemove=friends.user_id) }}">
+							<img src="static/images/trashBlack.png" width="20px" height="20px" />
+						</a>
+					</div>
+					<div class="contentButton">
+						<a href="{{ url_for('addBestFriend', userToRequest=friends.user_id) }}">
+							<img id="star" src="static/images/starBlack.png" width="20px" height="20px" />
+						</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}{% else %}<div><p>No friends</p></div>
+	{% endif %}
+	</div>
+	<div style="clear:both;">
+	</div><br><br>
+
+{% endblock %}
