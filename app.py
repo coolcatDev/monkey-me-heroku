@@ -323,40 +323,39 @@ def registering():
             return render_template('register.html')
         if userCheck4 == "":
             flash('"Confirm password"')
-    if userCheck3 == userCheck4:
-        file = request.files['file']
-        if file and allowed_file(file.filename):
-                newUser = users(userCheck, userCheck2, userCheck5, userCheck3)
-                db.session.add(newUser)
-                db.session.commit()
-                userName = users.query.filter_by(
-                    userName=userCheck, userPass=userCheck3).first()
-                session['logged_in'] = True
-                session['user_id'] = userName.id
-                # image part
-                filename = str(userName.id)
-                # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
-                conn = boto.connect_s3(
-                    app.config['AWS_ACCESS_KEY'],
-                    app.config['AWS_SECRET_KEY']
-                )
-                bucket = conn.get_bucket(app.config['S3_BUCKET'])
-                key = '%s.jpg' % filename
-                k = Key(bucket)
-                k.key = key
-                buff = cStringIO.StringIO()
-                buff.write(file.read())
-                buff.seek(0)
-                k.set_contents_from_file(buff)
-                flash('"Registered Successfully"')
-                return redirect(url_for('friendList'))
+        if userCheck3 == userCheck4:
+            file = request.files['file']
+            if file and allowed_file(file.filename):
+                    newUser = users(userCheck, userCheck2, userCheck5, userCheck3)
+                    db.session.add(newUser)
+                    db.session.commit()
+                    userName = users.query.filter_by(
+                        userName=userCheck, userPass=userCheck3).first()
+                    session['logged_in'] = True
+                    session['user_id'] = userName.id
+                    # image part
+                    filename = str(userName.id)
+                    # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+                    conn = boto.connect_s3(
+                        app.config['AWS_ACCESS_KEY'],
+                        app.config['AWS_SECRET_KEY']
+                    )
+                    bucket = conn.get_bucket(app.config['S3_BUCKET'])
+                    key = '%s.jpg' % filename
+                    k = Key(bucket)
+                    k.key = key
+                    buff = cStringIO.StringIO()
+                    buff.write(file.read())
+                    buff.seek(0)
+                    k.set_contents_from_file(buff)
+                    flash('"Registered Successfully"')
+                    return redirect(url_for('friendList'))
+            else:
+                flash('"Add an image (.jpg)"')
+                return render_template('register.html')
         else:
-            flash('"Add an image (.jpg)"')
+            flash('"Retype passwords"')
             return render_template('register.html')
-    
-    else:
-        flash('"Retype passwords"')
-        return render_template('register.html')
         
     else:
         return render_template('register.html')
