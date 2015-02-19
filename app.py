@@ -462,7 +462,7 @@ def saveEditAccount():
                             newUser.userPhone = userCheck3
                             newUser.userPass = userCheck4
                             db.session.commit()
-                             filename = str(profileID)
+                            filename = str(profileID)
                             # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
                             conn = boto.connect_s3(
                                 app.config['AWS_ACCESS_KEY'], 
