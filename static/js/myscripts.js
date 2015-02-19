@@ -7,7 +7,7 @@ document.onreadystatechange = function (){
 	
 	var page = window.location.toString();
 
-	if((page.indexOf('register') => -1) OR page.indexOf('editAccount') => -1)){
+	if((page.indexOf('register') > -1) OR (page.indexOf('editAccount') > -1)){
 		var subButton2 = document.getElementById("subButton2");
 		subButton2.onclick = function () {
 			var uploadBtn = document.getElementById("fileBtnHide");
