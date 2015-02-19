@@ -4,10 +4,10 @@ document.onreadystatechange = function (){
 	topValue = windowH - 100;
 	var contentWrap = document.getElementsByClassName("content");
 	contentWrap[0].style.top= topValue +'px';
-	var subButton2 = document.getElementsByClassName("subButton2");
+	var subButton2 = document.getElementById("subButton2");
 	
 	subButton2.onclick = function () {
-		var uploadBtn = document.getElementsByClassName("fileBtnHide");
+		var uploadBtn = document.getElementById("fileBtnHide");
 		uploadBtn.click();
 	};
 
@@ -33,8 +33,8 @@ function scrollTo(element, to, duration) {
     if (duration < 0) return;
         var difference = to - element.scrollTop;
         var perTick = difference / duration * 2;
-    setTimeout(function() {
-        element.scrollTop = element.scrollTop + perTick;
-        scrollTo(element, to, duration - 2);
-    }, 10);
+    	setTimeout(function() {
+        	element.scrollTop = element.scrollTop + perTick;
+        	scrollTo(element, to, duration - 2);
+   		}, 10);
 };
