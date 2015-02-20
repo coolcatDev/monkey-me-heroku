@@ -7,7 +7,7 @@ document.onreadystatechange = function (){
 	
 	var page = window.location.toString();
 
-	if((page.indexOf('register_editAccount') > -1)){
+	if(page.indexOf('register-editAccount') > -1){
 		var subButton2 = document.getElementById("subButton2");
 		subButton2.onclick = function () {
 			var uploadBtn = document.getElementById("fileBtnHide");
@@ -31,7 +31,7 @@ document.onreadystatechange = function (){
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
 	scrollTo(document.body, destinyY, 200);
-
+22
 };
 
 function scrollTo(element, to, duration) {
