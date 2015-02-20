@@ -40,7 +40,7 @@ document.onreadystatechange = function (){
 	var destinyY = destiny[0].offsetTop;
 	//alert('destiny:'+destiny+'//destinyY:'+destinyY);
 	
-	//ok for chrome, safari but not firefox
+	//ok for chrome, safari, opera but not firefox
 	scrollTo(document.body, destinyY, 200);
 
 };
@@ -50,10 +50,10 @@ function scrollTo(element, to, duration) {
 	var difference = to - element.scrollTop;
 	var perTick = difference / duration * 2;
 	setTimeout(function() {
-		//ok safari,chome
+		//ok safari,chome, opera
 		//element.scrollTop = element.scrollTop + perTick;
 		element.scrollTop = element.scrollTop + perTick;
-		alert(element.scrollTop);
+		//alert(element.scrollTop);
 		scrollTo(element, to, duration - 2);
 	}, 10);
 };
