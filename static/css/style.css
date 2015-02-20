@@ -7,14 +7,11 @@
 	width: auto; 
 	height: auto; 
 	z-index: 0;
-	transition: 1s opacity;
 }
 
 video { 
 	display: block;
 }
-
-
 
 #vidpause{
 	display:none;
@@ -76,9 +73,6 @@ a {
 	height:auto;
 	position: absolute;
 	left:0px;
-	transition: 1s top;
-
-
 }
 
 
