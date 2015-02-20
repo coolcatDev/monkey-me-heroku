@@ -38,17 +38,24 @@ document.onreadystatechange = function (){
 
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
-	alert('destiny:'+destiny+'//destinyY:'+destinyY);
-	scrollTo(document, destinyY, 200);
+	//alert('destiny:'+destiny+'//destinyY:'+destinyY);
+	
+	//ok for chrome, safari but not firefox
+	//scrollTo(document.body, destinyY, 200);
+
+	//test fox
+	scrollTo(window, destinyY, 200);
 };
 
 function scrollTo(element, to, duration) {
 	if (duration <= 0) return;
-	var difference = to - element.scrollTop;
+	var difference = to - element.scrollY;
 	var perTick = difference / duration * 2;
 	setTimeout(function() {
-		element.scrollTop = element.scrollTop + perTick;
-		alert(element.scrollTop);
+		//ok safari,chome
+		//element.scrollTop = element.scrollTop + perTick;
+		element.scrollY = element.scrollY + perTick;
+		alert(element.scrollY);
 		scrollTo(element, to, duration - 2);
 	}, 10);
 };
