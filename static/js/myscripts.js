@@ -7,15 +7,7 @@ document.onreadystatechange = function (){
 	
 	var page = window.location.toString();
 
-	if((page.indexOf('register') > -1)){
-		var subButton2 = document.getElementById("subButton2");
-		subButton2.onclick = function () {
-			var uploadBtn = document.getElementById("fileBtnHide");
-			uploadBtn.click();
-		};
-	};
-
-	if((page.indexOf('editAccount') > -1)){
+	if((page.indexOf('register_editAccount') > -1)){
 		var subButton2 = document.getElementById("subButton2");
 		subButton2.onclick = function () {
 			var uploadBtn = document.getElementById("fileBtnHide");
@@ -38,9 +30,6 @@ document.onreadystatechange = function (){
 
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
-	//alert('destiny:'+destiny+'//destinyY:'+destinyY);
-	
-	//ok for chrome, safari, opera but not firefox
 	scrollTo(document.body, destinyY, 200);
 
 };
@@ -50,10 +39,7 @@ function scrollTo(element, to, duration) {
 	var difference = to - element.scrollTop;
 	var perTick = difference / duration * 2;
 	setTimeout(function() {
-		//ok safari,chome, opera
-		//element.scrollTop = element.scrollTop + perTick;
 		element.scrollTop = element.scrollTop + perTick;
-		//alert(element.scrollTop);
 		scrollTo(element, to, duration - 2);
 	}, 10);
 };
