@@ -43,7 +43,7 @@ document.onreadystatechange = function (){
 };
 
 function scrollTo(element, to, duration) {
-	if (duration < 0) return;
+	if (duration <= 0) return;
 	var difference = to - element.scrollTop;
 	var perTick = difference / duration * 2;
 	setTimeout(function() {
