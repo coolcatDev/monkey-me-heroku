@@ -37,7 +37,7 @@ document.onreadystatechange = function (){
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
 	
-	if (navigator.userAgent.toLowerCase().indexOf('firefox')){
+	if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1){
 		scrollTo(document.documentElement, destinyY, 200);
 	}else{
 		scrollTo(document.body, destinyY, 200);
