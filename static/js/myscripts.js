@@ -7,14 +7,14 @@ document.onreadystatechange = function (){
 	
 	var page = window.location.toString();
 
-	if(page.indexOf('register') > -1){
+	if(page.indexOf('register') !== -1){
 		var subButton2 = document.getElementById("subButton2");
 		subButton2.onclick = function () {
 			var uploadBtn = document.getElementById("fileBtnHide");
 			uploadBtn.click();
 		};
 	};
-	if(page.indexOf('editAccount') > -1){
+	if(page.indexOf('editAccount') !== -1){
 		var subButton2 = document.getElementById("subButton2");
 		subButton2.onclick = function () {
 			var uploadBtn = document.getElementById("fileBtnHide");
@@ -36,7 +36,13 @@ document.onreadystatechange = function (){
 
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
-	scrollTo(document.documentElement, destinyY, 200);
+	
+	if (navigator.userAgent.toLowerCase().indexOf('firefox')){
+		scrollTo(document.documentElement, destinyY, 200);
+	}else{
+		scrollTo(document.body, destinyY, 200);
+	}
+	
 
 };
 
