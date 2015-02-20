@@ -46,7 +46,8 @@ function scrollTo(element, to, duration) {
     var difference = to - element.scrollTop;
     var perTick = difference / duration * 2;
 	setTimeout(function() {
-    	element.scrollTop = element.scrollTop + perTick;
-    	scrollTo(element, to, duration - 2);
+    	//element.scrollTop = element.scrollTop + perTick;
+    	window.scrollY = window.scrollY + perTick
+    	scrollTo(element, to, duration - 2); 
 		}, 10);
 };
