@@ -9,12 +9,14 @@ document.onreadystatechange = function (){
 	var subButton2 = document.getElementById("subButton2");
 	if((page.indexOf('register') >= 0)){
 		subButton2.onclick = function () {
+			alert('if statement works');
 			var uploadBtn = document.getElementById("fileBtnHide");
 			uploadBtn.click();
 		};
 	};
 	if((page.indexOf('editAccount') >= 0)){
 		subButton2.onclick = function () {
+			alert('if statement works');
 			var uploadBtn = document.getElementById("fileBtnHide");
 			uploadBtn.click();
 		};
