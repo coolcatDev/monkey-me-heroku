@@ -38,7 +38,7 @@ document.onreadystatechange = function (){
 
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
-	alert('destiny:'+destiny+'//destinyY:'+destinyY);
+	//alert('destiny:'+destiny+'//destinyY:'+destinyY);
 	scrollTo(document.body, destinyY, 200);
 };
 
@@ -48,6 +48,7 @@ function scrollTo(element, to, duration) {
 	var perTick = difference / duration * 2;
 	setTimeout(function() {
 		element.scrollTop = element.scrollTop + perTick;
+		alert(element.scrollTop);
 		scrollTo(element, to, duration - 2);
 	}, 10);
 };
