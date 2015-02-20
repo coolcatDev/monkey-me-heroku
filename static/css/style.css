@@ -100,6 +100,7 @@ a {
 	-o-transition: all 1s ease;
 	-ms-transition: all 1s ease;
 	transition: all 1s ease;
+
 }
 
 .contentUser:hover{
@@ -115,7 +116,7 @@ a {
 	background-color: rgba(255,255,255,0.75);
 	width: 300px;
 
-	-webkit-transition: all 1s ease;
+	-webkit-transition: all 1s ease left;
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
 	-ms-transition: all 1s ease;
@@ -137,11 +138,6 @@ a {
 	line-height: 40px;
 	margin: 5px;
 	background-color: yellow;
-	-webkit-transition: all 1s ease;
-	-moz-transition: all 1s ease;
-	-o-transition: all 1s ease;
-	-ms-transition: all 1s ease;
-	transition: all 1s ease;
 }
 
 .contentButton:hover{
