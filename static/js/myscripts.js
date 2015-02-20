@@ -7,16 +7,14 @@ document.onreadystatechange = function (){
 	
 	var page = window.location.toString();
 	var subButton2 = document.getElementById("subButton2");
-	if((page.indexOf('register') >= 0)){
+	if((page.indexOf('register') !== -1)){
 		subButton2.onclick = function () {
-			alert('if statement works');
 			var uploadBtn = document.getElementById("fileBtnHide");
 			uploadBtn.click();
 		};
 	};
-	if((page.indexOf('editAccount') >= 0)){
+	if((page.indexOf('editAccount') !== -1)){
 		subButton2.onclick = function () {
-			alert('if statement works');
 			var uploadBtn = document.getElementById("fileBtnHide");
 			uploadBtn.click();
 		};
