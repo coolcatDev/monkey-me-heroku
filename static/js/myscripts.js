@@ -36,7 +36,7 @@ document.onreadystatechange = function (){
 
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
-	scrollTo(document.destiny, destinyY, 200);
+	scrollTo(document.destiny[0], destinyY, 200);
 22
 };
 
