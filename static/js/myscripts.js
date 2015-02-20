@@ -7,16 +7,15 @@ document.onreadystatechange = function (){
 	
 	var page = window.location.toString();
 	var subButton2 = document.getElementById("subButton2");
-
+	var uploadBtn = document.getElementById("fileBtnHide");
+	uploadBtn.css('display', 'none');
 	if((page.indexOf('register') !== -1)){
 		subButton2.onclick = function () {
-			var uploadBtn = document.getElementById("fileBtnHide");
 			uploadBtn.click();
 		};
 	};
 	if((page.indexOf('editAccount') !== -1)){
 		subButton2.onclick = function () {
-			var uploadBtn = document.getElementById("fileBtnHide");
 			uploadBtn.click();
 		};
 	};
