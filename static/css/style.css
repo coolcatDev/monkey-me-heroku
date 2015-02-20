@@ -137,6 +137,11 @@ a {
 	line-height: 40px;
 	margin: 5px;
 	background-color: yellow;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 .contentButton:hover{
