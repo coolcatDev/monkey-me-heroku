@@ -41,10 +41,8 @@ document.onreadystatechange = function (){
 	//alert('destiny:'+destiny+'//destinyY:'+destinyY);
 	
 	//ok for chrome, safari but not firefox
-	//scrollTo(document.body, destinyY, 200);
+	scrollTo(document.body, destinyY, 200);
 
-	//test fox
-	scrollTo(window, destinyY, 200);
 };
 
 function scrollTo(element, to, duration) {
