@@ -6,7 +6,7 @@ document.onreadystatechange = function (){
 	contentWrap[0].style.top= topValue +'px';
 	
 	var page = window.location.toString();
-
+	alert(page);
 	if((page.indexOf('register') !== -1)){
 		var subButton2 = document.getElementById("subButton2");
 		subButton2.onclick = function () {
