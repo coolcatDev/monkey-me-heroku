@@ -26,6 +26,7 @@ video {
 	position:relative;
 	margin-top: 200px;
 	cursor: pointer;
+	-webkit-transform-style: preserve-3d;
 	transition: 1s opacity;
 }
 
@@ -94,7 +95,7 @@ a {
 	overflow: hidden;
 	background-size: 300px 200px;
 	position: relative;
-
+	-webkit-transform-style: preserve-3d;
 	-webkit-transition: all 1s ease;
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
@@ -115,7 +116,7 @@ a {
 	background-color:white;
 	background-color: rgba(255,255,255,0.75);
 	width: 300px;
-
+	-webkit-transform-style: preserve-3d;
 	-webkit-transition: all 1s ease;
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
@@ -262,6 +263,7 @@ a {
 	font-weight: bolder;
 	text-decoration: none;
 	outline:2px solid green;
+	-webkit-transform-style: preserve-3d;
 	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
@@ -424,6 +426,7 @@ a {
 	bottom: 0;
 	left: 0;
 	background-color: green;
+	-webkit-transform-style: preserve-3d;
 	-webkit-transition: all 1s ease;
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
