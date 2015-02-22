@@ -46,9 +46,9 @@ window.onload = function (){
 
 document.onload{
 	var loader = document.getElementById("loader");
+	loader.style.opcaity=0;
 	loader.style.display='none';
-
-}
+};
 
 function scrollTo(element, to, duration) {
 	if (duration <= 0) return;
