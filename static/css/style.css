@@ -528,3 +528,14 @@ a {
     .contentUserWrap{width:1024px;}
     .footer{background-color:green;}
 }
+
+@media (max-device-width: 800px) {
+    .menu{display:none;}
+    .menuM{display:block;}
+    .logo{margin:0 auto;}
+    .logo{margin-top:12px;}
+    .logo{float:none;}
+    .sortMenu{width:340px;}
+    .contentUserWrap{width:340px;}
+    .footer{background-color:yellow;}
+}
