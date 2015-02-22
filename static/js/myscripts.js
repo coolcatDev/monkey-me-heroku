@@ -23,17 +23,18 @@ window.onload = function(){
 			if (file) {
 				var fileSize = 0;
 				fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
-				if (fileSize >= 1.01 )
+				if (fileSize >= 1.01 ){
 					var flash = document.getElementById('flashes');
 					flash.innerHTML = 'Select an image under 1 MB';
-				else
+				};
+				else{
 					var submitBtn = document.getElementsByClassName('subButton');
 					submitBtn[0].style.display='block';
-			}
-		}
-
-
+				};
+			};
+		};
 	};
+
 	if((page.indexOf('editAccount') !== -1)){
 		var subButton2 = document.getElementById("subButton2");
 		var uploadBtn = document.getElementById("fileBtnHide");
@@ -47,16 +48,16 @@ window.onload = function(){
 			if (file) {
 				var fileSize = 0;
 				fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
-				if (fileSize >= 1.01 )
+				if (fileSize >= 1.01 ){
 					var flash = document.getElementById('flashes');
 					flash.innerHTML = 'Select an image under 1 MB';
-				else
+				};
+				else{
 					var submitBtn = document.getElementsByClassName('subButton');
 					submitBtn[0].style.display='block';
-					
-			
-			}
-		}
+				};
+			};
+		};
 	};
 
 
