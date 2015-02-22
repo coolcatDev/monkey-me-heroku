@@ -4,8 +4,9 @@
 	min-width:100%;
 	min-height:100%;
 	background-color: green;
-	background-image:url('https://s3.amazonaws.com/monkey-me-avatars/loader.gif') no-repeat center;
-	background-size: 30% 30%;
+	background-image:url('https://s3.amazonaws.com/monkey-me-avatars/loader.gif');
+	background-position: 35% 35%;
+	background-repeat: no-repeat;
 	top:0;
 	left:0;
 
