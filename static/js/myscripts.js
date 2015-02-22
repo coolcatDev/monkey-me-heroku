@@ -1,5 +1,8 @@
+window.onload = function(){
+	var loader = document.getElementById("loader");
+	loader.style.opcaity=0;
+	loader.style.display='none';
 
-window.onload = function (){
 	var windowH= window.innerHeight;
 	topValue = windowH - 100;
 	var contentWrap = document.getElementsByClassName("content");
@@ -44,11 +47,7 @@ window.onload = function (){
 	}
 };
 
-document.onload = function(){
-	var loader = document.getElementById("loader");
-	loader.style.opcaity=0;
-	loader.style.display='none';
-};
+
 
 function scrollTo(element, to, duration) {
 	if (duration <= 0) return;
