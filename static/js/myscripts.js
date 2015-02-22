@@ -47,7 +47,17 @@ window.onload = function(){
 	}
 };
 
-
+var avatar = document.getElementById("fileBtnHide");
+avatar.onchange =function() {
+	var file = document.getElementById('fileToUpload').files[0];
+	if (file) {
+		var fileSize = 0;
+		fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
+		alert(fileSize);
+			
+	
+	}
+}
 
 function scrollTo(element, to, duration) {
 	if (duration <= 0) return;
