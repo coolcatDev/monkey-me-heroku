@@ -26,14 +26,13 @@ window.onload = function(){
 				if (fileSize >= 1.01 ){
 					var flash = document.getElementById('flashes');
 					flash.innerHTML = 'Select an image under 1 MB';
-				};
-				else{
+				}else{
 					var submitBtn = document.getElementsByClassName('subButton');
 					submitBtn[0].style.display='block';
-				};
-			};
+				}
+			}
 		};
-	};
+	}
 
 	if((page.indexOf('editAccount') !== -1)){
 		var subButton2 = document.getElementById("subButton2");
@@ -51,14 +50,13 @@ window.onload = function(){
 				if (fileSize >= 1.01 ){
 					var flash = document.getElementById('flashes');
 					flash.innerHTML = 'Select an image under 1 MB';
-				};
-				else{
+				}else{
 					var submitBtn = document.getElementsByClassName('subButton');
 					submitBtn[0].style.display='block';
-				};
-			};
+				}
+			}
 		};
-	};
+	}
 
 
 
