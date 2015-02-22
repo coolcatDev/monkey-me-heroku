@@ -94,7 +94,6 @@ a {
 	left:0px;
 }
 
-
 .contentUserWrap{
 	position: relative;
 	margin: 0 auto;
@@ -118,7 +117,6 @@ a {
 	-o-transition: all 1s ease;
 	-ms-transition: all 1s ease;
 	transition: all 1s ease;
-
 }
 
 .contentUser:hover{
@@ -342,6 +340,28 @@ a {
 	background-color: yellow;
 }
 
+.logButton{
+	font-family: corbel;
+	border: 2px solid green;
+	border-radius: 0;
+	background-color: white;
+	height: 30px;
+	margin-top: 4px;
+	margin-right: 4px;
+	text-align: center;
+	width: 90%;
+	font-weight: bold;
+	font-size: 1em;
+	display: block;
+	margin: 0 auto;
+	cursor: pointer;
+
+}
+
+.logButton:hover{
+	background-color: yellow;
+}
+
 .formin{
 	font-weight: bold;
 	font-size: 1em;
@@ -477,8 +497,6 @@ a {
 	text-align: center;
 }
 
-				
-
 @media (max-width: 800px) {
     .menu{display:none;}
     .menuM{display:block;}
@@ -488,12 +506,9 @@ a {
     .sortMenu{width:340px;}
     .contentUserWrap{width:340px;}
     .footer{background-color:yellow;}
-
-
 }
 
-
-@media (min-width: 801px) and (max-width: 1100px)  {
+@media (min-width: 801px) and (max-width: 1100px) {
     .menu{display:none;}
     .menuM{display:block;}
     .logo{margin:0 auto;}
@@ -502,7 +517,6 @@ a {
     .sortMenu{width:680px;}
     .contentUserWrap{width:680px;}
     .footer{background-color:yellow;}
-
 }
 
 @media (min-width: 1101px) {
@@ -513,5 +527,4 @@ a {
     .sortMenu{width:1024px;}
     .contentUserWrap{width:1024px;}
     .footer{background-color:green;}
-
 }
