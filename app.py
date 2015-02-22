@@ -434,7 +434,7 @@ def saveEditAccount():
             profileID = session['user_id']
             if userCheck1 == "":
                         flash('"Username required"')
-                        return redirect(url_for('editAccount'))
+                        return render_template('editAccount')
             newUser = users.query.filter_by(userName=userCheck1).first()
             if newUser:
                 if newUser.id != profileID:
