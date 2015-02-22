@@ -332,9 +332,10 @@ a {
 	width: 90%;
 	font-weight: bold;
 	font-size: 1em;
-	display: block;
+	display: none;
 	margin: 0 auto;
 	cursor: pointer;
+
 }
 
 .subButton:hover{
