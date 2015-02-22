@@ -19,7 +19,7 @@ window.onload = function(){
 
 		var avatar = document.getElementById("fileBtnHide");
 		avatar.onchange =function() {
-			var file = document.getElementById('fileToUpload').files[0];
+			var file = avatar.files[0];
 			if (file) {
 				var fileSize = 0;
 				fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
@@ -29,7 +29,7 @@ window.onload = function(){
 			}
 		}
 
-		
+
 	};
 	if((page.indexOf('editAccount') !== -1)){
 		var subButton2 = document.getElementById("subButton2");
@@ -40,7 +40,7 @@ window.onload = function(){
 
 		var avatar = document.getElementById("fileBtnHide");
 		avatar.onchange =function() {
-			var file = document.getElementById('fileToUpload').files[0];
+			var file = avatar.files[0];
 			if (file) {
 				var fileSize = 0;
 				fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
