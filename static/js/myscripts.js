@@ -25,7 +25,7 @@ window.onload = function(){
 				fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
 				if (fileSize >= 1.01 ){
 					var flash = document.getElementById('flashes');
-					flash.innerHTML = 'Select an image under 1 MB';
+					flash.innerHTML = '"Select an image under 1 MB"';
 				}else{
 					var submitBtn = document.getElementsByClassName('subButton');
 					submitBtn[0].style.display='block';
@@ -49,7 +49,7 @@ window.onload = function(){
 				fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
 				if (fileSize >= 1.01 ){
 					var flash = document.getElementById('flashes');
-					flash.innerHTML = 'Select an image under 1 MB';
+					flash.innerHTML = '"Select an image under 1 MB"';
 				}else{
 					var submitBtn = document.getElementsByClassName('subButton');
 					submitBtn[0].style.display='block';
