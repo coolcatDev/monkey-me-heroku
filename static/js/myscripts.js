@@ -44,7 +44,7 @@ window.onload = function (){
 	}
 };
 
-document.onload{
+document.onload = function(){
 	var loader = document.getElementById("loader");
 	loader.style.opcaity=0;
 	loader.style.display='none';
