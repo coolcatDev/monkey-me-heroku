@@ -1,5 +1,5 @@
 
-document.onreadystatechange = function (){
+window.onload = function (){
 	var windowH= window.innerHeight;
 	topValue = windowH - 100;
 	var contentWrap = document.getElementsByClassName("content");
@@ -42,8 +42,6 @@ document.onreadystatechange = function (){
 	}else{
 		scrollTo(document.body, destinyY, 200);
 	}
-	
-
 };
 
 function scrollTo(element, to, duration) {
