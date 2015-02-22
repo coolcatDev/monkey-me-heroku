@@ -1,3 +1,12 @@
+#loader {
+	position:fixed;
+	z-index:9999;
+	min-width:100%;
+	min-height:100%;
+	background-color: green;
+	background-image:url('https://s3.amazonaws.com/monkey-me-avatars/loader.gif') no-repeat center;
+}
+
 #bgvid {
 	position: fixed; 
 	right: 0; 

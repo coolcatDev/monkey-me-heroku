@@ -44,6 +44,12 @@ window.onload = function (){
 	}
 };
 
+document.onload{
+	var loader = document.getElementById("loader");
+	loader.style.display='none';
+
+}
+
 function scrollTo(element, to, duration) {
 	if (duration <= 0) return;
 	var difference = to - element.scrollTop;
