@@ -14,7 +14,7 @@ window.onload = function(){
 		prepareForms();
 	}
 	//use clcik instead of hover for ipad
-	if((page.indexOf('ofile') !== -1) || (page.indexOf('friends') !== -1) || (page.indexOf('users') || (page.indexOf('allList')) {
+	if((page.indexOf('ofile') !== -1) || (page.indexOf('friends') !== -1) || (page.indexOf('users') !== -1) || (page.indexOf('allList') !== -1)) {
 		avoidHover();
 	}
 	//Prepare BgVideo
