@@ -45,7 +45,8 @@ function avoidHover() {
 	[].forEach.call(userDivs, function(e){
 	    e.click = function(){
 	        
-	        e.childNodes[0].style.backgroundColor='green';
+	        var target = e.getElementsByClassName('contentButtonWrap');
+	        target[0].style.backgroundColor='green';
 	        };
 	});
 };
