@@ -43,8 +43,9 @@ window.onload = function(){
 function avoidHover() {
 	var userDivs = document.getElementsByClassName('contentUser');
 	[].forEach.call(userDivs, function(e){
-	     e.onfocus = function(){
-	        alert('I can click any of the divs now!');
+	    e.click = function(){
+	        
+	        e.childNodes[1].style.backgroundColor='green';
 	        };
 	});
 };
