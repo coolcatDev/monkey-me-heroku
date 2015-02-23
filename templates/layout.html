@@ -2,6 +2,7 @@
 <html>
 
 <head>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
 <link rel="stylesheet" href="static/css/style.css" />
 <script src="static/js/myscripts.js"></script>
 
@@ -53,27 +54,27 @@
 					<td>
 					{% if not session.logged_in %}
 						<a href="{{ url_for('login') }}">
-							<img src="static/images/key.png" width="32px" height="32px" />
+							<img class=menuIcons src="static/images/key.png" />
 						</a>
 					{% else %}
 						<a href="{{ url_for('logout') }}">
-							<img src="static/images/lock.png" width="32px" height="32px" />
+							<img class=menuIcons src="static/images/lock.png" />
 						</a>
 					{% endif %}
 					</td>
 					<td>
 						<a href="{{url_for('allList')}}">
-							<img src="static/images/search.png" width="32px" height="32px" />
+							<img class=menuIcons src="static/images/search.png" />
 						</a>
 					</td>
 					<td>
 						<a href="{{url_for('friendList')}}">
-							<img src="static/images/user.png" width="32px" height="32px" />
+							<img class=menuIcons src="static/images/user.png" />
 						</a>
 					</td>
 					<td>
 						<a href="{{url_for('myProfile')}}">
-							<img src="static/images/copy.png" width="32px" height="32px" />
+							<img class=menuIcons src="static/images/copy.png" />
 						</a>
 					</td>
 				</tr>

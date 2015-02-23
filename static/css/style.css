@@ -369,12 +369,13 @@ a {
 .accountControllers {
 	float:right;
 	margin:25px;
+	margin-top: 10px;
 	padding:10px;
 	outline: 2px solid green;
 	line-height: 50%;
 }
 
-.accaountControllers:hover {
+.accountControllers:hover {
 	background-color: yellow;
 }
 
@@ -513,6 +514,11 @@ a {
 	text-align: center;
 }
 
+.menuIcons {
+	width:32px;
+	height:32px;
+}
+
 @media (max-width: 800px) {
     .menu{display:none;}
     .menuM{display:block;}
@@ -563,4 +569,12 @@ a {
     }
     .menuM{height:100px;}
     .footer{height:15px;}
+
+    .menuIcons {
+		width:32px;
+		height:32px;
+	}
+
+	.controlMenu{top: 120px;}
+
 }

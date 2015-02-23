@@ -49,16 +49,18 @@ function prepareForms() {
 	//Limit file upload size to 1Mb to allow submission
 	var avatar = document.getElementById("fileBtnHide");
 	avatar.onchange =function() {
+		var flash = document.getElementById('flashes');
+		var submitBtn = document.getElementsByClassName('subButton');
 		var file = avatar.files[0];
 		if (file) {
 			var fileSize = 0;
 			fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
 			if (fileSize >= 1.1 ){
-				var flash = document.getElementById('flashes');
+				submitBtn[0].style.display='block';
 				flash.innerHTML = '"Select an image under 1 MB"';
 			}else{
-				var submitBtn = document.getElementsByClassName('subButton');
 				submitBtn[0].style.display='block';
+				flash.innerHTML = '"Image loaded"';
 			}
 		}
 	};
