@@ -13,6 +13,10 @@ window.onload = function(){
 	if((page.indexOf('register') !== -1) || (page.indexOf('editAccount') !== -1)){
 		prepareForms();
 	}
+	//use clcik instead of hover for ipad
+	if((page.toLowerCase().indexOf('profile') !== -1) || (page.indexOf('friends') !== -1) || (page.indexOf('users') || (page.indexOf('allList')){
+		avoidHover();
+	}
 	//Prepare BgVideo
 	var vid = document.getElementById("bgvid");
 	var onOFF = document.getElementById("vidPauseVisable");
@@ -33,6 +37,14 @@ window.onload = function(){
 	}else{
 		scrollTo(document.body, destinyY, 200);
 	}
+};
+
+
+function avoidHover() {
+	var userDivs = document.getElementsByClassName('contentUser');
+	userDivs[*].onclick = function(){
+		alert('works');
+	};
 };
 
 
