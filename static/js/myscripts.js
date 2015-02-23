@@ -42,7 +42,7 @@ window.onload = function(){
 
 function avoidHover() {
 	var userDivs = document.getElementsByClassName('contentUser');
-	[].forEach.call(elements, function(e){
+	[].forEach.call(userDivs, function(e){
 	     e.onclick = function(){
 	        alert('I can click any of the divs now!');
 	        };
