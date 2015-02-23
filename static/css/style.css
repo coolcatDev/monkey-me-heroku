@@ -117,11 +117,11 @@ a {
 	transition: all 1s ease;
 }
 
-.contentUser:hover{
+/*.contentUser:hover{
 	outline: 3px solid green;
 	background-size: 450px 300px;
 }
-
+*/
 .contentButtonWrap{
 	position: absolute;
 	bottom: 0;
@@ -137,10 +137,10 @@ a {
 	transition: all 1s ease;
 }
 
-.contentUser:hover .contentButtonWrap{
+/*.contentUser:hover .contentButtonWrap{
 	left: 0;
 }
-
+*/
 .contentButton{
 	height: 40px;
 	width: 40px;

@@ -51,15 +51,15 @@ function alternativeHover() {
 		e.onclick = function() {
 			var target = e.getElementsByClassName('contentButtonWrap');
 			target[0].style.left=0;
-			target[0].style.background-size='450px 300px';
-			target[0].style.outline='3px solid green';
+			e.style.backgroundSize='450px 300px';
+			e.style.outline='3px solid green';
 	    };
 
 	    e.onblur = function() {
 			var target = e.getElementsByClassName('contentButtonWrap');
 			target[0].style.left='300px';
-			target[0].style.background-size='300px 200px';
-			target[0].style.outline='2px solid green';
+			e.style.backgroundSize='300px 200px';
+			e.style.outline='2px solid green';
 	    };
 	});
 };
