@@ -47,16 +47,15 @@ window.onload = function(){
 
 function alternativeHover() {
 	var userDivs = document.getElementsByClassName('contentUser');
+	var target = e.getElementsByClassName('contentButtonWrap');
 	[].forEach.call(userDivs, function(e){
 		e.onclick = function() {
-			var target = e.getElementsByClassName('contentButtonWrap');
 			target[0].style.left=0;
 			e.style.backgroundSize='450px 300px';
 			e.style.outline='3px solid green';
 	    };
 
 	    e.onblur = function() {
-			var target = e.getElementsByClassName('contentButtonWrap');
 			target[0].style.left='300px';
 			e.style.backgroundSize='300px 200px';
 			e.style.outline='2px solid green';
