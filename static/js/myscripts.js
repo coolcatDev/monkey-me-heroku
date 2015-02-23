@@ -10,10 +10,7 @@ window.onload = function(){
 	contentWrap[0].style.top= topValue +'px';
 	//Prepare forms if on editAccount or register page
 	var page = window.location.toString();
-	if((page.indexOf('register') !== -1)){
-		prepareForms();
-	}
-	if((page.indexOf('editAccount') !== -1)){
+	if((page.indexOf('register') !== -1)) || ((page.indexOf('editAccount') !== -1)){
 		prepareForms();
 	}
 	//Prepare BgVideo

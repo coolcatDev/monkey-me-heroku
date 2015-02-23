@@ -122,11 +122,6 @@ a {
 	background-size: 450px 300px;
 }
 
-.contentUser:active{
-	outline: 3px solid green;
-	background-size: 450px 300px;
-}
-
 .contentButtonWrap{
 	position: absolute;
 	bottom: 0;
@@ -143,10 +138,6 @@ a {
 }
 
 .contentUser:hover .contentButtonWrap{
-	left: 0;
-}
-
-.contentUser:active .contentButtonWrap{
 	left: 0;
 }
 
