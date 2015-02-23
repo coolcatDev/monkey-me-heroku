@@ -10,11 +10,11 @@ window.onload = function(){
 	contentWrap[0].style.top= topValue +'px';
 	//Prepare forms if on editAccount or register page
 	var page = window.location.toString();
-	if((page.indexOf('register') !== -1) || (page.indexOf('editAccount') !== -1)){
+	if((page.indexOf('register') !== -1) || (page.indexOf('editAccount') !== -1)) {
 		prepareForms();
 	}
 	//use clcik instead of hover for ipad
-	if((page.toLowerCase().indexOf('profile') !== -1) || (page.indexOf('friends') !== -1) || (page.indexOf('users') || (page.indexOf('allList')){
+	if((page.indexOf('ofile') !== -1) || (page.indexOf('friends') !== -1) || (page.indexOf('users') || (page.indexOf('allList')) {
 		avoidHover();
 	}
 	//Prepare BgVideo
