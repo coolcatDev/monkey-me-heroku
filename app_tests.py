@@ -13,11 +13,9 @@ class AppTestCase(unittest.TestCase):
         app.app.config['TESTING'] = True
         self.app = app.app.test_client()
 
-
     def tearDown(self):
         os.close(self.db_fd)
         os.unlink(app.app.config['DATABASE'])
-
 
     def login(self, username, password):
         return self.app.post('/login', data=dict(
@@ -25,37 +23,34 @@ class AppTestCase(unittest.TestCase):
             password=password
         ), follow_redirects=True)
 
-
     def logout(self):
         return self.app.get('/logout', follow_redirects=True)
 
-
     def test_01_login_logout(self):
-        #login
+        # login
         rv = self.login('Alex', 'passwordAlex')
         assert 'Friends' in rv.data
-        #logout
+        # logout
         rv = self.logout()
         assert 'You have logged out' in rv.data
-        #login no password
+        # login no password
         rv = self.login('Alex', 'noPassword')
         assert 'You have to Login' in rv.data
-        #login no username
+        # login no username
         rv = self.login('WrongName', 'passwordAlex')
         assert 'You have to Login' in rv.data
 
-
     def test_02_register_page(self):
-        #enter register
+        # enter register
         rv = self.app.get('/register')
         assert 'Register' in rv.data
-
 
     def registering(self, username, email, password, passwordCheck, phone):
         with open('static/images/test.jpg') as test:
             imgStringIO = StringIO(test.read())
 
-        return self.app.post('/registering',
+        return self.app.post(
+            '/registering',
             content_type='multipart/form-data',
             data=dict(
                 {'file': (imgStringIO, 'test.jpg')},
@@ -67,9 +62,8 @@ class AppTestCase(unittest.TestCase):
             ), follow_redirects=True
         )
 
-
     def test_03_registering(self):
-        #new username
+        # new username
         rv = self.registering(
             'TestUser',
             'test@test.com',
@@ -78,7 +72,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Registered Successfully' in rv.data
-        #existing username/user
+        # existing username/user
         rv = self.registering(
             'Hulda',
             'hulda@hulda.com',
@@ -87,7 +81,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Username Taken' in rv.data
-         #no username
+        # no username
         rv = self.registering(
             '',
             'santana@santana.com',
@@ -96,7 +90,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Username required' in rv.data
-        #no email
+        # no email
         rv = self.registering(
             'Santana',
             '',
@@ -105,7 +99,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Email required' in rv.data
-        #no password
+        # no password
         rv = self.registering(
             'Santana',
             'santana@santana.com',
@@ -114,7 +108,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Password required' in rv.data
-        #no password confirmation
+        # no password confirmation
         rv = self.registering(
             'Santana',
             'santana@santana.com',
@@ -123,7 +117,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Confirm password' in rv.data
-        #no password match on form
+        # no password match on form
         rv = self.registering(
             'Santana',
             'santana@santana.com',
@@ -132,7 +126,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Retype passwords' in rv.data
-        #no phone
+        # no phone
         rv = self.registering(
             'Santana',
             'santana@santana.com',
@@ -142,13 +136,11 @@ class AppTestCase(unittest.TestCase):
         )
         assert 'Phone required' in rv.data
 
-
     def test_04_editAccount(self):
-        #enter edit account (TestUser)
+        # enter edit account (TestUser)
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/editAccount')
         assert 'Edit profile' in rv.data
-
 
     def saveEditAccount(
         self,
@@ -158,13 +150,15 @@ class AppTestCase(unittest.TestCase):
         userPassA,
         userPassB
     ):
-        #save edited account(TestUser)
+        # save edited account(TestUser)
         self.login('TestUser', 'passwordTest')
         with open('static/images/test.jpg') as test:
             imgStringIO = StringIO(test.read())
 
-        return self.app.post('/saveEditAccount',
-            content_type='multipart/form-data',
+        return self.app.post(
+            '/saveEditAccount',
+            content_type=
+            'multipart/form-data',
             data=dict(
                 {'file': (imgStringIO, 'test.jpg')},
                 userName=userName,
@@ -175,9 +169,8 @@ class AppTestCase(unittest.TestCase):
             ), follow_redirects=True
         )
 
-
     def test_05_saveEditAccount(self):
-         #successfully changed with same username
+        # successfully changed with same username
         rv = self.saveEditAccount(
             'TestUser',
             'user@user.com',
@@ -186,7 +179,7 @@ class AppTestCase(unittest.TestCase):
             'passwordTest'
         )
         assert 'Saved' in rv.data
-         #successfully changed with different(not taken) username
+        # successfully changed with different(not taken) username
         rv = self.saveEditAccount(
             'BetaUser',
             'test@test.com',
@@ -195,7 +188,7 @@ class AppTestCase(unittest.TestCase):
             'passwordTest'
         )
         assert 'Saved' in rv.data
-        #existing username/user
+        # existing username/user
         rv = self.saveEditAccount(
             'Alex',
             'test@test.com',
@@ -204,7 +197,7 @@ class AppTestCase(unittest.TestCase):
             'passwordTest'
         )
         assert 'Username Taken' in rv.data
-         #no username
+        # no username
         rv = self.saveEditAccount(
             '',
             'test@test.com',
@@ -213,7 +206,7 @@ class AppTestCase(unittest.TestCase):
             'passwordTest'
         )
         assert 'Username required' in rv.data
-        #no email
+        # no email
         rv = self.saveEditAccount(
             'BetaUser',
             '',
@@ -222,7 +215,7 @@ class AppTestCase(unittest.TestCase):
             'passwordTest'
         )
         assert 'Email required' in rv.data
-        #no password
+        # no password
         rv = self.saveEditAccount(
             'BetaUser',
             'test@test.com',
@@ -240,7 +233,7 @@ class AppTestCase(unittest.TestCase):
             ''
         )
         assert 'Confirm password' in rv.data
-        #no password match
+        # no password match
         rv = self.saveEditAccount(
             'BetaUser',
             'test@test.com',
@@ -249,7 +242,7 @@ class AppTestCase(unittest.TestCase):
             'passwordTest'
         )
         assert 'Retype passwords' in rv.data
-        #no phone
+        # no phone
         rv = self.saveEditAccount(
             'BetaUser',
             'test@test.com',
@@ -259,61 +252,53 @@ class AppTestCase(unittest.TestCase):
         )
         assert 'Phone required' in rv.data
 
-
     def test_06_index_page(self):
-        #index redirect
+        # index redirect
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/', follow_redirects=True)
         assert 'Friends' in rv.data
 
-
     def test_07_myProfile_page(self):
-        #enter my profile
+        # enter my profile
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/myProfile')
         assert 'My Profile' in rv.data
 
-
     def test_08_users_page(self):
-        #enter users
+        # enter users
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/users')
         assert 'Users' in rv.data
 
-
     def test_09_friends_page(self):
-        #enter friends
+        # enter friends
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/friends')
         assert 'Friends' in rv.data
 
-
     def test_10_profile_page(self):
-        #enter profile
+        # enter profile
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/profile1')
         assert 'Profile' in rv.data
 
-
     def test_11_addFriend(self):
-        #add existing friend(Alex(id=1) & Pedro(id=8))
+        # add existing friend(Alex(id=1) & Pedro(id=8))
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/addFriend/8', follow_redirects=True)
         assert 'Friendship exists' in rv.data
 
     def test_12_removeFriend(self):
-        #remove friend(Alex(1) & Sara(2))
+        # remove friend(Alex(1) & Sara(2))
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/removeFriend/2', follow_redirects=True)
         assert 'Friendship removed' in rv.data
 
-
     def test_13_addFriendNew(self):
-        #add new friend(Alex(1) & Sara(2))
+        # add new friend(Alex(1) & Sara(2))
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/addFriend/2', follow_redirects=True)
         assert 'Friendship Created' in rv.data
-
 
     def test_14_deleteAccount(self):
         self.login('BetaUser', 'passwordTest')

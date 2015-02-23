@@ -326,7 +326,12 @@ def registering():
         if userCheck3 == userCheck4:
             file = request.files['file']
             if file and allowed_file(file.filename):
-                    newUser = users(userCheck, userCheck2, userCheck5, userCheck3)
+                    newUser = users(
+                        userCheck,
+                        userCheck2,
+                        userCheck5,
+                        userCheck3
+                    )
                     db.session.add(newUser)
                     db.session.commit()
                     userName = users.query.filter_by(
@@ -335,7 +340,7 @@ def registering():
                     session['user_id'] = userName.id
                     # image part
                     filename = str(userName.id)
-                    # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+                    # S3_BUCKET credentials = HEROKU envar in config.py
                     conn = boto.connect_s3(
                         app.config['AWS_ACCESS_KEY'],
                         app.config['AWS_SECRET_KEY']
@@ -356,7 +361,6 @@ def registering():
         else:
             flash('"Retype passwords"')
             return render_template('register.html')
-        
     else:
         return render_template('register.html')
 
@@ -396,13 +400,13 @@ def deleteAccount():
         if oldBFFCheck:
             db.session.delete(oldBFFCheck)
             db.session.commit()
-        # delete user    
+        # delete user
         oldAccountUser = users.query.filter_by(id=userToDelete).first()
         db.session.delete(oldAccountUser)
         db.session.commit()
 
         filename = str(userToDelete) + '.jpg'
-        # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+        # S3_BUCKET credential in config.py
         conn = boto.connect_s3(
             app.config['AWS_ACCESS_KEY'],
             app.config['AWS_SECRET_KEY']
@@ -467,13 +471,13 @@ def saveEditAccount():
                             newUser.userPass = userCheck4
                             db.session.commit()
                             filename = str(profileID)
-                            # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+                            # S3_BUCKET credentials in config.py
                             conn = boto.connect_s3(
-                                app.config['AWS_ACCESS_KEY'], 
+                                app.config['AWS_ACCESS_KEY'],
                                 app.config['AWS_SECRET_KEY']
                             )
                             bucket = conn.get_bucket(app.config['S3_BUCKET'])
-                            bucket.delete_key(filename + '.jpg')    
+                            bucket.delete_key(filename + '.jpg')
                             key = '%s.jpg' % filename
                             k = Key(bucket)
                             k.key = key
@@ -512,9 +516,9 @@ def saveEditAccount():
                         newUser.userPass = userCheck4
                         db.session.commit()
                         filename = str(profileID)
-                        # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+                        # S3_BUCKET credentials in config.py
                         conn = boto.connect_s3(
-                            app.config['AWS_ACCESS_KEY'], 
+                            app.config['AWS_ACCESS_KEY'],
                             app.config['AWS_SECRET_KEY']
                         )
                         bucket = conn.get_bucket(app.config['S3_BUCKET'])
