@@ -402,6 +402,12 @@ def deleteAccount():
         db.session.commit()
 
         filename = str(userToDelete) + '.jpg'
+        # S3_BUCKET, AWS_ACCESS_KEY & AWS_SECRET_KEY = HEROKU envar from config.py
+        conn = boto.connect_s3(
+            app.config['AWS_ACCESS_KEY'],
+            app.config['AWS_SECRET_KEY']
+        )
+        bucket = conn.get_bucket(app.config['S3_BUCKET'])
         bucket.delete_key(filename)
         flash('"Account deleted"')
         return redirect(url_for('logout'))
