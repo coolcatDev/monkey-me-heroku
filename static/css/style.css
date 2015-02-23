@@ -340,6 +340,10 @@ a {
 	background-color: yellow;
 }
 
+.subButton:active{
+	display:none;
+}
+
 .logButton{
 	font-family: corbel;
 	border: 2px solid green;
@@ -359,6 +363,18 @@ a {
 }
 
 .logButton:hover{
+	background-color: yellow;
+}
+
+.accaountControllers {
+	float:right;
+	margin:25px;
+	padding:10px;
+	outline: 2px solid green;
+	line-height: 50%;
+}
+
+.accaountControllers:hover {
 	background-color: yellow;
 }
 
@@ -538,4 +554,13 @@ a {
     .sortMenu{width:340px;}
     .contentUserWrap{width:340px;}
     .footer{background-color:yellow;}
+
+    .bar{height:120px;}
+    .logo{margin-top: 44px;}
+    .innerMenuM{
+    	width:80%;
+    	margin-top:20px;
+    }
+    .menuM{height:100px;}
+    .footer{height:15px;}
 }
