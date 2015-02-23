@@ -14,8 +14,13 @@ window.onload = function(){
 		prepareForms();
 	}
 	//use clcik instead of hover for ipad
-	if((page.indexOf('ofile') !== -1) || (page.indexOf('friends') !== -1) || (page.indexOf('users') !== -1) || (page.indexOf('allList') !== -1)) {
-		avoidHover();
+	if(
+		(page.indexOf('ofile') !== -1) ||
+		(page.indexOf('friends') !== -1) ||
+		(page.indexOf('users') !== -1) ||
+		(page.indexOf('allList') !== -1)
+	) {
+		alternativeHover();
 	}
 	//Prepare BgVideo
 	var vid = document.getElementById("bgvid");
@@ -40,14 +45,14 @@ window.onload = function(){
 };
 
 
-function avoidHover() {
+function alternativeHover() {
 	var userDivs = document.getElementsByClassName('contentUser');
 	[].forEach.call(userDivs, function(e){
-	    e.onclick = function(){
-	        
+	    e.onclick = function() {
 	        var target = e.getElementsByClassName('contentButtonWrap');
-	        target[0].style.backgroundColor='green';
-	        };
+	        target[0].style.left=0;
+	        target[0].style.top='20px';
+	    };
 	});
 };
 
