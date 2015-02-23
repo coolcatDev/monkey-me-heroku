@@ -14,13 +14,10 @@ window.onload = function(){
 		prepareForms();
 	}
 	//use clcik instead of hover for ipad
-	if(
-		(page.indexOf('ofile') !== -1) ||
-		(page.indexOf('friends') !== -1) ||
-		(page.indexOf('users') !== -1) ||
-		(page.indexOf('allList') !== -1)
-	) {
-		alternativeHover();
+	if(navigator.platform.indexOf('iPad') !== -1) {
+		if(page.indexOf('friends') !== -1) || (page.indexOf('users') !== -1)) {
+			alternativeHover();
+		}
 	}
 	//Prepare BgVideo
 	var vid = document.getElementById("bgvid");
@@ -38,8 +35,10 @@ window.onload = function(){
 	var destiny = document.getElementsByClassName('content');
 	var destinyY = destiny[0].offsetTop;
 	if (navigator.userAgent.toLowerCase().indexOf('firefox') !== -1){
+		//firefox
 		scrollTo(document.documentElement, destinyY, 200);
 	}else{
+		//rest of navigators
 		scrollTo(document.body, destinyY, 200);
 	}
 };
@@ -50,16 +49,9 @@ function alternativeHover() {
 	[].forEach.call(userDivs, function(e){
 		e.onclick = function() {
 			var target = e.getElementsByClassName('contentButtonWrap');
-			target[0].style.left=0;
 			e.style.backgroundSize='450px 300px';
 			e.style.outline='3px solid green';
-	    };
-
-	    e.onblur = function() {
-	    	var target = e.getElementsByClassName('contentButtonWrap');
-			target[0].style.left='300px';
-			e.style.backgroundSize='300px 200px';
-			e.style.outline='2px solid green';
+			target[0].style.left=0;
 	    };
 	});
 };
