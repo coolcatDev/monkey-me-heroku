@@ -101,7 +101,6 @@ a {
 .contentUser{
 	height: 200px;
 	width: 300px;
-	outline: 2px solid green;
 	float: left;
 	margin: 20px;
 	font-size: 2em;
@@ -110,7 +109,7 @@ a {
 	overflow: hidden;
 	background-size: 300px 200px;
 	position: relative;
-	-webkit-transform-style: preserve-3d;
+	outline: 2px solid green;
 	-webkit-transition: all 1s ease;
 	-moz-transition: all 1s ease;
 	-o-transition: all 1s ease;
@@ -119,6 +118,11 @@ a {
 }
 
 .contentUser:hover{
+	outline: 3px solid green;
+	background-size: 450px 300px;
+}
+
+.contentUser:active{
 	outline: 3px solid green;
 	background-size: 450px 300px;
 }
