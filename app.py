@@ -400,9 +400,7 @@ def deleteAccount():
         oldAccountUser = users.query.filter_by(id=userToDelete).first()
         db.session.delete(oldAccountUser)
         db.session.commit()
-        
-        #image = 'static/uploads/' + str(userToDelete) + '.jpg'
-        #os.remove(image)
+
         filename = str(userToDelete) + '.jpg'
         bucket.delete_key(filename)
         flash('"Account deleted"')

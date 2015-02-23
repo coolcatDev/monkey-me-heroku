@@ -24,7 +24,7 @@
 		</table>
 	</div>
 	<div style="clear:both;"></div>
-	
+
 {% with messages = get_flashed_messages() %}
 	{% if messages %}
 		{% for message in messages %}
@@ -42,7 +42,7 @@
 			Best Friend:{{ friend.userName }}
 		</p>
 	{% endfor %}
-{% endif %} 
+{% endif %}
 
 	<div class="contentUserWrap">
 	{% if userList.items %}

@@ -10,7 +10,6 @@
 	background-repeat: no-repeat;
 	top:0;
 	left:0;
-
 	-webkit-transform-style: preserve-3d;
 	transition: 0.5s opacity;
 }
@@ -261,7 +260,6 @@ a {
 .sortMenu{
 	position: relative;
 	margin: 0 auto;
-
 }
 
 .sortMenBtn{
@@ -333,7 +331,6 @@ a {
 	display: none;
 	margin: 0 auto;
 	cursor: pointer;
-
 }
 
 .subButton:hover{
@@ -359,7 +356,6 @@ a {
 	display: block;
 	margin: 0 auto;
 	cursor: pointer;
-
 }
 
 .logButton:hover{
@@ -408,7 +404,6 @@ a {
 }
 .register:hover{
 	background-color: yellow;
-
 }
 
 .bar{
@@ -553,20 +548,23 @@ a {
 
 @media (max-device-width: 800px) {
     .menu{display:none;}
-    .menuM{display:block;}
+    .menuM{
+        display:block;
+        height:60px;
+    }
+
     .logo{margin:0 auto;}
     .logo{margin-top:12px;}
     .logo{float:none;}
     .sortMenu{width:340px;}
     .contentUserWrap{width:340px;}
     .footer{background-color:yellow;}
+    .footer{height:10px;}
 
     .innerMenuM{
-    	width:80%;
-    	margin-top:3px;
+        width:80%;
+        margin-top:3px;
     }
-    .menuM{height:60px;}
-    .footer{height:10px;}
 
     .menuIcons {
 		width:40px;

@@ -52,7 +52,6 @@ class AppTestCase(unittest.TestCase):
 
 
     def registering(self, username, email, password, passwordCheck, phone):
-        #file =  url_for('static', filename='test.jpg')
         with open('static/images/test.jpg') as test:
             imgStringIO = StringIO(test.read())
 
@@ -124,7 +123,7 @@ class AppTestCase(unittest.TestCase):
             '900102030'
         )
         assert 'Confirm password' in rv.data
-        #no password match
+        #no password match on form
         rv = self.registering(
             'Santana',
             'santana@santana.com',
@@ -161,7 +160,7 @@ class AppTestCase(unittest.TestCase):
     ):
         #save edited account(TestUser)
         self.login('TestUser', 'passwordTest')
-        with open('static/uploads/test.jpg') as test:
+        with open('static/images/test.jpg') as test:
             imgStringIO = StringIO(test.read())
 
         return self.app.post('/saveEditAccount',
@@ -297,24 +296,23 @@ class AppTestCase(unittest.TestCase):
 
 
     def test_11_addFriend(self):
-        #add existing friend(Alex(id=1) & Pedro(id=3))
+        #add existing friend(Alex(id=1) & Pedro(id=8))
         self.login('Alex', 'passwordAlex')
-        rv = self.app.get('/addFriend/3', follow_redirects=True)
+        rv = self.app.get('/addFriend/8', follow_redirects=True)
         assert 'Friendship exists' in rv.data
 
-
-    def test_12_addFriendNew(self):
-        #add new friend(Alex(1) & Laura(2))
-        self.login('Alex', 'passwordAlex')
-        rv = self.app.get('/addFriend/2', follow_redirects=True)
-        assert 'Friendship Created' in rv.data
-
-
-    def test_13_removeFriend(self):
-        #remove friend(Alex(1) & Laura(2))
+    def test_12_removeFriend(self):
+        #remove friend(Alex(1) & Sara(2))
         self.login('Alex', 'passwordAlex')
         rv = self.app.get('/removeFriend/2', follow_redirects=True)
         assert 'Friendship removed' in rv.data
+
+
+    def test_13_addFriendNew(self):
+        #add new friend(Alex(1) & Sara(2))
+        self.login('Alex', 'passwordAlex')
+        rv = self.app.get('/addFriend/2', follow_redirects=True)
+        assert 'Friendship Created' in rv.data
 
 
     def test_14_deleteAccount(self):

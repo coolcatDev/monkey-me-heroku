@@ -4,9 +4,9 @@
 {% with messages = get_flashed_messages() %}
     {% if messages %}
         {% for message in messages %}
-        <div id=flashes>
-        {{ message }}
-        </div>
+            <div id=flashes>
+            {{ message }}
+            </div>
         {% endfor %}
     {% endif %}
 {% endwith %}
@@ -39,7 +39,7 @@
             <a href="{{ url_for('deleteAccount') }}">
                 <img src="static/images/trashBlack.png" width="20px" height="20px" />
             </a>
-        </div> 
+        </div>
 
         <div class="accountControllers">
             <a href="{{ url_for('editAccount') }}">
