@@ -15,7 +15,7 @@ window.onload = function(){
 	}
 	//use clcik instead of hover for ipad
 	if(navigator.platform.indexOf('iPad') !== -1) {
-		if(page.indexOf('friends') !== -1) || (page.indexOf('users') !== -1)) {
+		if((page.indexOf('friends') !== -1) || (page.indexOf('users') !== -1)) {
 			alternativeHover();
 		}
 	}
