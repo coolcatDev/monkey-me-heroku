@@ -56,7 +56,7 @@ function prepareForms() {
 			var fileSize = 0;
 			fileSize = (Math.round(file.size * 100 / (1024 * 1024)) / 100).toString();
 			if (fileSize >= 1.1 ){
-				submitBtn[0].style.display='block';
+				submitBtn[0].style.display='none';
 				flash.innerHTML = '"Select an image under 1 MB"';
 			}else{
 				submitBtn[0].style.display='block';
