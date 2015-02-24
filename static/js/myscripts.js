@@ -19,13 +19,16 @@ window.onload = function(){
 	//Prepare BgVideo
 	var vid = document.getElementById("bgvid");
 	var onOFF = document.getElementById("vidPauseVisable");
+	var message = document.getElementById("message");
 	onOFF.onclick = function () {
 		if (vid.paused) {
 			vid.play();
 			onOFF.style.backgroundImage="url(static/images/pause.png)";
+			message.style.display="block";
 		}else{
 				vid.pause();
 				onOFF.style.backgroundImage="url(static/images/play.png)";
+				message.style.display="none";
 		}
 	};
 	//Scroll to content start
