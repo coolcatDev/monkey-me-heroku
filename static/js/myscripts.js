@@ -4,10 +4,7 @@ window.onload = function(){
 	loader.style.opcaity=0;
 	loader.style.display='none';
 	//Set content container height and position
-	var windowH= window.innerHeight;
-	topValue = windowH - 100;
-	var contentWrap = document.getElementsByClassName("content");
-	contentWrap[0].style.top= topValue +'px';
+	adaptContentPage();
 	//Prepare forms if on editAccount or register page
 	var page = window.location.toString();
 	if((page.indexOf('register') !== -1) || (page.indexOf('editAccount') !== -1)) {
@@ -43,6 +40,16 @@ window.onload = function(){
 	}
 };
 
+
+window.onresize = adaptContentPage;
+
+
+function adaptContentPage() {
+	var windowH= window.innerHeight;
+	topValue = windowH - 100;
+	var contentWrap = document.getElementsByClassName("content");
+	contentWrap[0].style.top= topValue +'px';
+}
 
 function alternativeHover() {
 	var userDivs = document.getElementsByClassName('contentUser');
