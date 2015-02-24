@@ -65,13 +65,13 @@
 				<div class="contentButtonWrap">
 					<div class="contentButton">
 						<a href="{{ url_for('profile', profileId = user.users.id) }}">
-							<img src="static/images/copyBlack.png" width="20px" height="20px" />
+							<img src="static/images/profileBlack.svg" width="20px" height="20px" />
 						</a>
 					</div>
 				{% if user.users.id !=  session.user_id %}
 					<div class="contentButton">
 						<a href="{{ url_for('addFriend', userToAdd = user.users.id) }}">
-							<img src="static/images/addFriendBlack.png" width="20px" height="20px" />
+							<img src="static/images/friendBlack.svg" width="20px" height="20px" />
 						</a>
 					</div>
 				{% endif %}

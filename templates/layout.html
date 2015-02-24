@@ -54,27 +54,27 @@
 					<td>
 					{% if not session.logged_in %}
 						<a href="{{ url_for('login') }}">
-							<img class=menuIcons src="static/images/key.png" />
+							<img class=menuIcons src="static/images/keyWhite.svg" />
 						</a>
 					{% else %}
 						<a href="{{ url_for('logout') }}">
-							<img class=menuIcons src="static/images/lock.png" />
+							<img class=menuIcons src="static/images/lockWhite.svg" />
 						</a>
 					{% endif %}
 					</td>
 					<td>
 						<a href="{{url_for('allList')}}">
-							<img class=menuIcons src="static/images/search.png" />
+							<img class=menuIcons src="static/images/userWhite.svg" />
 						</a>
 					</td>
 					<td>
 						<a href="{{url_for('friendList')}}">
-							<img class=menuIcons src="static/images/user.png" />
+							<img class=menuIcons src="static/images/friendWhite.svg" />
 						</a>
 					</td>
 					<td>
 						<a href="{{url_for('myProfile')}}">
-							<img class=menuIcons src="static/images/copy.png" />
+							<img class=menuIcons src="static/images/profileWhite.svg" />
 						</a>
 					</td>
 				</tr>

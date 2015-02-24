@@ -314,13 +314,16 @@ a {
 	margin-top: 4px;
 	margin-right: 4px;
 	text-align: center;
-	width: 90%;
+	width: 50%;
 	font-weight: bold;
 	font-size: 1em;
 	display: block;
 	margin: 0 auto;
 	cursor: pointer;
 	line-height: 30px;
+	background-image:url('static/images/cameraBlack.svg');
+	background-position: center;
+	background-size: 25px 25px;
 }
 
 #subButton2:hover{
