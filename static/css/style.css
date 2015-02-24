@@ -47,8 +47,11 @@ video {
 	text-align: center;
 	position:relative;
 	margin-top: 10px;
-	-webkit-transform-style: preserve-3d;
-	transition: 2s opacity;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 #vidPauseVisable{
@@ -59,8 +62,14 @@ video {
 	position:relative;
 	margin-top: 200px;
 	cursor: pointer;
-	-webkit-transform-style: preserve-3d;
-	transition: 1s opacity;
+	background-size: 150px 150px;
+	background-repeat: no-repeat;
+	background-color: black;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 #vidPauseVisable:hover{
