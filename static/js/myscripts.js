@@ -23,12 +23,10 @@ window.onload = function(){
 	onOFF.onclick = function () {
 		if (vid.paused) {
 			vid.play();
-			vid.classList.add("stopfade");
 			onOFF.style.backgroundImage="url(static/images/pause.svg)";
 			message.style.opacity=1;
 		}else{
 				vid.pause();
-				vid.classList.add("stopfade");
 				onOFF.style.backgroundImage="url(static/images/play.svg)";
 				message.style.opacity=0;
 		}
