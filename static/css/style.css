@@ -14,23 +14,19 @@ img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
 	background-color: green;
 	background-image:url('https://s3.amazonaws.com/monkey-me-avatars/loader.gif');
 	background-position: center;
-	background-size: 15%;
+	background-size: 50px 50px;
 	background-repeat: no-repeat;
 	top:0;
 	left:0;
-	-webkit-transform-style: preserve-3d;
 	transition: 0.5s opacity;
 }
 
 #bgvid {
 	position: fixed;
 	left: 0;
-	right: 0;
 	bottom: 0;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
+	min-width: 101%;
+	min-height: 101%;
 	z-index: 0;
 }
 
