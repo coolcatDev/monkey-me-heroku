@@ -1,11 +1,10 @@
 img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
-	image-rendering: -moz-crisp-edges;         /* Firefox */
-	image-rendering:   -o-crisp-edges;         /* Opera */
-	image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+	image-rendering: -moz-crisp-edges;
+	image-rendering:   -o-crisp-edges;
+	image-rendering: -webkit-optimize-contrast;
 	image-rendering: crisp-edges;
-	-ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+	-ms-interpolation-mode: nearest-neighbor;
 }
-
 
 #loader {
 	position:fixed;
@@ -25,7 +24,7 @@ img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
 
 #bgvid {
 	position: fixed; 
-	right: 0; 
+	left: 0; 
 	bottom: 0;
 	min-width: 100%; 
 	min-height: 100%;
@@ -35,8 +34,12 @@ img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
 }
 
 video { 
+	min-width: 100%; 
+	min-height: 100%;
 	background-color: black;
 	display: block;
+	left: 0; 
+	bottom: 0;
 }
 
 #vidpause{
@@ -448,7 +451,7 @@ a {
 
 .menu{
 	float: right;
-	width: 40%;
+	width:auto;
 	height: 45px;
 	overflow: hidden;
 	margin-right: 13%;
@@ -568,6 +571,32 @@ a {
     .logo{float:none;}
     .sortMenu{width:340px;}
     .contentUserWrap{width:340px;}
+    .footer{background-color:yellow;}
+    .footer{height:10px;}
+
+    .innerMenuM{
+        width:80%;
+        margin-top:3px;
+    }
+
+    .menuIcons {
+		width:40px;
+		height:40px;
+	}
+}
+
+@media (min-device-width: 801px) and (max-width: 1100px) {
+    .menu{display:none;}
+    .menuM{
+        display:block;
+        height:60px;
+    }
+
+    .logo{margin:0 auto;}
+    .logo{margin-top:12px;}
+    .logo{float:none;}
+    .sortMenu{width:680px;}
+    .contentUserWrap{width:680px;}
     .footer{background-color:yellow;}
     .footer{height:10px;}
 
