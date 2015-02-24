@@ -42,10 +42,13 @@ video {
 
 #message{
 	color:white;
-	opacity:.8;
+	opacity:.5;
 	font-family: corbel;
 	font-style: italic;
 	display: none;
+	margin:0 auto;
+	position:relative;
+	margin-top: 200px;
 }
 
 #vidPauseVisable{
