@@ -23,23 +23,21 @@ img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
 }
 
 #bgvid {
-	position: fixed; 
-	left: 0; 
+	position: fixed;
+	left: 0;
+	right: 0;
 	bottom: 0;
-	min-width: 100%; 
+	min-width: 100%;
 	min-height: 100%;
-	width: auto; 
-	height: auto; 
+	width: auto;
+	height: auto;
 	z-index: 0;
 }
 
 video { 
-	min-width: 100%; 
-	min-height: 100%;
 	background-color: black;
 	display: block;
-	left: 0; 
-	bottom: 0;
+	
 }
 
 #vidPauseVisable{
