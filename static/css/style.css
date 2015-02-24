@@ -42,10 +42,6 @@ video {
 	bottom: 0;
 }
 
-#vidpause{
-	display:none;
-}
-
 #vidPauseVisable{
 	opacity:0.5;
 	width: 150px;
@@ -314,9 +310,6 @@ a {
 	display: block;
 	margin: 0 auto;
 	cursor: pointer;
-	background-image:url('static/images/cameraBlack.svg');
-	background-position: center;
-	background-size: 25px 25px;
 }
 
 #subButton2:hover{
