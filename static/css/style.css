@@ -46,7 +46,7 @@ video {
 	font-family: corbel;
 	font-style: italic;
 	display: none;
-	margin:0 auto;
+	text-align: center;
 	position:relative;
 	margin-top: 10px;
 }
