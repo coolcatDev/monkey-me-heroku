@@ -303,7 +303,6 @@ a {
 }
 
 #subButton2{
-	border: 2px solid green;
 	background-color: white;
 	width: 60px;
 	height: 60px;
@@ -312,6 +311,7 @@ a {
 	cursor: pointer;
 	border: 2px solid green;
 	vertical-align: middle;
+	line-height: 10px;
 }
 
 #subButton2:hover{
