@@ -310,8 +310,9 @@ a {
 	margin: 0 auto;
 	cursor: pointer;
 	border: 2px solid green;
+	line-height: 60px;
 	vertical-align: middle;
-	line-height: 10px;
+	text-align: center;
 }
 
 #subButton2:hover{
