@@ -23,10 +23,10 @@ window.onload = function(){
 		if (vid.paused) {
 			vid.play();
 			onOFF.style.backgroundImage="url(static/images/pause.png)";
-		} else {
+		}else{
 				vid.pause();
 				onOFF.style.backgroundImage="url(static/images/play.png)";
-				}
+		}
 	};
 	//Scroll to content start
 	var destiny = document.getElementsByClassName('content');
@@ -40,13 +40,11 @@ window.onload = function(){
 	}
 };
 
-
 window.onresize = adaptContentPage;
-
 
 function adaptContentPage() {
 	var windowH= window.innerHeight;
-	topValue = windowH - 100;
+	var topValue = windowH - 100;
 	var contentWrap = document.getElementsByClassName("content");
 	contentWrap[0].style.top= topValue +'px';
 }
@@ -62,7 +60,6 @@ function alternativeHover() {
 	    };
 	});
 };
-
 
 function prepareForms() {
 	//Enable click of hidden file upload button
@@ -90,7 +87,6 @@ function prepareForms() {
 		}
 	};
 }
-
 
 function scrollTo(element, to, duration) {
 	if (duration <= 0) return;
