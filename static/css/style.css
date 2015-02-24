@@ -24,8 +24,8 @@ img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	min-width: 101%;
-	min-height: 101%;
+	min-width: 100%;
+	min-height: 100%;
 	z-index: 0;
 	opacity: 0.7;
 	background-size: cover;
