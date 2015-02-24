@@ -24,7 +24,7 @@ window.onload = function(){
 		if (vid.paused) {
 			vid.play();
 			onOFF.style.backgroundImage="url(static/images/pause.svg)";
-			message.style.opacity=1;
+			message.style.opacity=0.5;
 		}else{
 				vid.pause();
 				onOFF.style.backgroundImage="url(static/images/play.svg)";
