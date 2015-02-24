@@ -303,16 +303,13 @@ a {
 }
 
 #subButton2{
-	background-color: white;
-	width: 60px;
 	height: 60px;
-	display: block;
-	margin: 0 auto;
-	cursor: pointer;
+	width: 60px;
 	border: 2px solid green;
-	line-height: 60px;
 	vertical-align: middle;
 	text-align: center;
+	line-height: 60px;
+	margin: 0 auto;
 }
 
 #subButton2:hover{
