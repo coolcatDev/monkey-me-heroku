@@ -29,7 +29,11 @@ img[src$=".gif"], img[src$=".png"], img[src$=".jpg"] {
 	z-index: 0;
 	opacity: 0.7;
 	background-size: cover;
-	transition: 0.5s opacity;
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	transition: all 1s ease;
 }
 
 video { 
