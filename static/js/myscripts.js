@@ -23,11 +23,15 @@ window.onload = function(){
 	onOFF.onclick = function () {
 		if (vid.paused) {
 			vid.play();
-			onOFF.style.backgroundImage="url(static/images/pause.png)";
+			vid.style.opcaity=1;
+			onOFF.style.backgroundImage="url(static/images/pause.svg)";
 			message.style.display="block";
+			message.style.opacity=1;
 		}else{
 				vid.pause();
-				onOFF.style.backgroundImage="url(static/images/play.png)";
+				vid.style.opcaity=0.7;
+				onOFF.style.backgroundImage="url(static/images/play.svg)";
+				message.style.opacity=0;
 				message.style.display="none";
 		}
 	};
