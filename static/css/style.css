@@ -40,17 +40,6 @@ video {
 	
 }
 
-#message{
-	color:white;
-	opacity:.5;
-	font-family: corbel;
-	font-style: italic;
-	display: none;
-	margin:0 auto;
-	position:relative;
-	margin-top: 200px;
-}
-
 #vidPauseVisable{
 	opacity:0.5;
 	width: 150px;
