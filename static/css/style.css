@@ -496,6 +496,7 @@ a {
 
 .footer{
 	position: fixed;
+	z-index: 101;
 	font-family: corbel;
 	color: white;
 	width: 100%;
