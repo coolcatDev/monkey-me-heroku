@@ -305,6 +305,17 @@ class AppTestCase(unittest.TestCase):
         rv = self.app.get('/deleteAccount', follow_redirects=True)
         assert 'Account deleted' in rv.data
 
+    def test_15_addBestFriend(self):
+        # add new best friend(Alex(1) & Pedro(8))
+        self.login('Alex', 'passwordAlex')
+        rv = self.app.get('/addBestFriend/8', follow_redirects=True)
+        assert 'Best Friend Created' in rv.data
+
+    def test_16_addBestFriendRepeated(self):
+        # add new best friend(Alex(1) & Pedro(8))
+        self.login('Alex', 'passwordAlex')
+        rv = self.app.get('/addBestFriend/8', follow_redirects=True)
+        assert 'Best Friend Created' in rv.data
 
 if __name__ == '__main__':
     unittest.main()
