@@ -123,6 +123,7 @@ a {
 	width: 100%;
 	height:auto;
 	position: absolute;
+	z-index: 1;
 	left:0px;
 }
 
