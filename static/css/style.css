@@ -140,7 +140,8 @@ a {
 	font-weight: bold;
 	color: yellow;
 	overflow: hidden;
-	background-size: 300px 200px;
+	background-size: 300px auto;
+	background-position: center;
 	position: relative;
 	outline: 2px solid green;
 	-webkit-transition: all 1s ease;
@@ -152,7 +153,7 @@ a {
 
 .contentUser:hover{
 	outline: 3px solid green;
-	background-size: 450px 300px;
+	background-size: 450px auto;
 }
 
 .contentButtonWrap{
@@ -335,6 +336,7 @@ a {
 	text-align: center;
 	line-height: 5;
 	margin: 0 auto;
+	cursor:pointer;
 }
 
 #subButton2:hover{

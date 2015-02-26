@@ -57,7 +57,7 @@ function alternativeHover() {
 	[].forEach.call(userDivs, function(e){
 		e.onclick = function() {
 			var target = e.getElementsByClassName('contentButtonWrap');
-			e.style.backgroundSize='450px 300px';
+			e.style.backgroundSize='450px auto';
 			e.style.outline='3px solid green';
 			target[0].style.left=0;
 	    };
